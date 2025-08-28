@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Créer un compte - ImmoKeys</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .signup-container {
+            width: 70vw;
+            max-width: 700px;
+            margin: 80px auto 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .signup-container h2 {
+            margin-bottom: 25px;
+            color: #11113a;
+        }
+        .signup-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .signup-form input {
+            padding: 12px 14px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1.1em;
+        }
+        .signup-form button {
+            background: #D4AF37;
+            color: #222;
+            border: none;
+            font-weight: bold;
+            border-radius: 6px;
+            padding: 12px 0;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .signup-form button:hover {
+            background: #b89b2c;
+            color: #fff;
+        }
+        @media (max-width: 700px) {
+            .signup-container {
+                width: 95vw;
+                padding: 18px 8px;
+                margin-top: 30px;
+            }
+        }
+        .header-signup {
+            display: flex;
+            align-items: center;
+            padding: 18px 0 18px 18px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .back-arrow {
+            font-size: 2em;
+            color: #11113a;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.2s;
+        }
+        .back-arrow:hover {
+            color: #D4AF37;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header class="header-signup">
+        <a href="login.php" class="back-arrow" title="Retour à l'accueil">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </header>
+    <main>
+        <div class="signup-container">
+            <h2>create an account</h2>
+            <form class="signup-form" action="signup.php" method="post">
+                <input type="text" name="fullname" placeholder="full name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="username" placeholder="username" required>
+                <input type="password" name="password" placeholder="password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm password" required>
+                <button type="submit">register</button>
+                <div style="text-align:center; margin-top:10px;">
+                    <span>Already have an account?</span>
+                    <a href="login.html" style="color:#D4AF37; text-decoration:underline;">Log in</a>
+                </div>
+            </form>
+            <div id="error-message" class="error-message"></div>
+            <script>
+                // Affiche le message d'erreur selon l'URL
+                const params = new URLSearchParams(window.location.search);
+                const error = params.get('error');
+                if (error) {
+                    let msg = '';
+                    if (error === 'exists') msg = "Email or username already exists.";
+                    if (error === 'passwords') msg = "Passwords do not match.";
+                    document.getElementById('error-message').textContent = msg;
+
+                    // Supprime le paramètre d'erreur de l'URL sans recharger la page
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+            </script>
+        </div>
+    </main>
+    <div style="height: 60px;"></div>
+    <footer>
+        <div class="footerContainer">
+            <div class="socialIcons">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-google-plus"></i></a>
+                
+            </div>
+            <div class="footerNav">
+                <ul><li><a href="home.php">home</a></li>
+            
+                    <li><a href="./profile.php">me</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    
+                </ul>
+            </div>
+            
+        </div>
+        <div class="footerBottom">
+            <p>Copyright &copy;2025; Designed by <span class="designer">meryem</span></p>
+        </div>
+    </footer>
+</body>
+</html>

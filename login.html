@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - ImmoKeys</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Centrage du formulaire de login */
+        .login-container {
+            width: 190vw;
+            max-width: 700px;
+            height: auto;
+            margin: 80px auto 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .login-container h2 {
+            margin-bottom: 25px;
+            color: #11113a;
+        }
+        .login-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .login-form input {
+            padding: 12px 14px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1.1em;
+        }
+        .login-form button {
+            background: #D4AF37;
+            color: #222;
+            border: none;
+            font-weight: bold;
+            border-radius: 6px;
+            padding: 12px 0;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .login-form button:hover {
+            background: #b89b2c;
+            color: #fff;
+        }
+        @media (max-width: 700px) {
+            .login-container {
+                width: 95vw;
+                padding: 18px 8px;
+                margin-top: 30px;
+            }
+        }
+        /* Header minimal */
+        .header-login {
+            display: flex;
+            align-items: center;
+            padding: 18px 0 18px 18px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .back-arrow {
+            font-size: 2em;
+            color: #11113a;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.2s;
+        }
+        .back-arrow:hover {
+            color: #D4AF37;
+            
+        }
+    </style>
+    <!-- Icônes FontAwesome pour la flèche -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header class="header-login">
+        <a href="home.php" class="back-arrow" title="Retour à l'accueil">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </header>
+    <main>
+        <div class="login-container">
+            <h2>Log in</h2>
+            <form class="login-form" action="login.php" method="post">
+                <input type="text" name="username" placeholder="Email" required>
+                <input type="password" name="password" placeholder="password" required>
+                <button type="submit">log in</button>
+                <div style="text-align:center; margin-top:10px;">
+                    <span>don't have an account?</span>
+                    <a href="signup.html" style="color:#D4AF37; text-decoration:underline;">create an account</a>
+                </div>
+            </form>
+        </div>
+    </main>
+    <div style="height: 60px;"></div> 
+    <footer>
+        <div class="footerContainer">
+            <div class="socialIcons">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-google-plus"></i></a>
+                
+            </div>
+            <div class="footerNav">
+                <ul><li><a href="home.php">home</a></li>
+            
+                    <li><a href="./profile.php">me</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    
+                </ul>
+            </div>
+            
+        </div>
+        <div class="footerBottom">
+            <p>Copyright &copy;2025; Designed by <span class="designer">meryem</span></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Real Estate Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        display: flex;
+        gap: 20px;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .chart-box {
+        width: 400px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Graphe ligne à gauche -->
+    <div class="chart-box">
+        <canvas id="lineChart"></canvas>
+    </div>
+    <!-- Graphe circulaire à droite -->
+    <div class="chart-box">
+        <canvas id="pieChart"></canvas>
+    </div>
+</div>
+
+<script>
+// === Graphe en courbe ===
+new Chart(document.getElementById('lineChart'), {
+    type: 'line',
+    data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+            data: [105, 111, 119, 128, 127],
+            borderColor: '#008080',
+            backgroundColor: '#008080',
+            tension: 0.3,
+            fill: false,
+            pointBackgroundColor: '#008080',
+            pointRadius: 6,
+            pointHoverRadius: 8
+        }]
+    },
+    options: {
+        plugins: { legend: { display: false } },
+        scales: {
+            y: { grid: { color: 'rgba(0,0,0,0.05)' } },
+            x: { grid: { color: 'rgba(0,0,0,0.05)' } }
+        }
+    }
+});
+
+// === Graphe circulaire ===
+new Chart(document.getElementById('pieChart'), {
+    type: 'pie',
+    data: {
+        labels: ['Appartements', 'Maisons', 'Autres'],
+        datasets: [{
+            data: [45, 35, 20],
+            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        plugins: { legend: { position: 'bottom' } }
+    }
+});
+</script>
+
+</body>
+</html>
